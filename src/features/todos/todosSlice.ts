@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AppThunk, RootState } from "../../app/store";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { AppThunk, RootState } from '../../app/store';
 
 // features/todos/todosSlice.ts
 type TodoId = string;
@@ -12,12 +12,12 @@ type TodosState = {
   list: Todo[];
 };
 const initialState: TodosState = {
-  list: [{ id: "123", title: "First todo", completed: false }],
+  list: [{ id: '123', title: 'First todo', completed: false }],
 };
 
 export const todosSlice = createSlice({
   // A name, used in action types:
-  name: "todos",
+  name: 'todos',
   // The initial state:
   initialState,
   // Key names will be used to generate actions:
@@ -28,13 +28,13 @@ export const todosSlice = createSlice({
       state: TodosState,
       // `PayloadAction` is a generic-type that allows you to specify an action with a typped payload.
       // In our case, this payload is of `Todo` type:
-      action: PayloadAction<Todo>
+      action: PayloadAction<Todo>,
     ) {
       state.list.push(action.payload);
     },
     toggleTodo(state, action: PayloadAction<TodoId>) {
       const index = state.list.findIndex(({ id }) => id === action.payload);
-      if (index != -1) {
+      if (index !== -1) {
         state.list[index].completed = !state.list[index].completed;
       }
     },

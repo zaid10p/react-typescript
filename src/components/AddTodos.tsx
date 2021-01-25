@@ -1,15 +1,15 @@
-import React, { FormEvent, useState } from "react";
-import { useDispatch } from "react-redux";
-import { addTodoAsync } from "../features/todos/todosSlice";
+import React, { FormEvent, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addTodoAsync } from '../features/todos/todosSlice';
 
 // The rest of the code stays the same:
 export const AddTodo : React.FC = () => {
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setTitle("");
+    setTitle('');
     dispatch(addTodoAsync(title));
   };
 
