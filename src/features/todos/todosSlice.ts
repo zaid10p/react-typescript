@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AppThunk, RootState } from '../../app/store';
+import { AppThunk, RootState } from '../../app/root';
 
 // features/todos/todosSlice.ts
 type TodoId = string;
@@ -26,9 +26,9 @@ export const todosSlice = createSlice({
     // The first one is the state,the second one is an action.
     addTodo(
       state: TodosState,
-      // `PayloadAction` is a generic-type that allows you to specify an action with a typped payload.
+      // `PayloadAction` is a generic-type that allows u to specify action with a typped payload
       // In our case, this payload is of `Todo` type:
-      action: PayloadAction<Todo>,
+      action: PayloadAction<Todo>
     ) {
       state.list.push(action.payload);
     },

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addTodoAsync } from '../features/todos/todosSlice';
 
 // The rest of the code stays the same:
-export const AddTodo : React.FC = () => {
+export const AddTodo: React.FC = () => {
   const [title, setTitle] = useState('');
   const dispatch = useDispatch();
 
@@ -21,7 +21,7 @@ export const AddTodo : React.FC = () => {
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <button>Add Todo</button>
+      <button type="submit">Add Todo</button>
     </form>
   );
 };

@@ -1,13 +1,14 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
+import { logOut } from '../features/auth/authSlice';
 // import { RootState } from "../app/store";
 import { selectTodos, toggleTodo } from '../features/todos/todosSlice';
 import { AddTodo } from './AddTodos';
 
-interface TodosProps extends RouteComponentProps {}
+type TodosProps = RouteComponentProps;
 
-export const Todos: React.FC<TodosProps> = (props) => {
+export const Todos: React.FC<TodosProps> = (props: TodosProps) => {
   console.log(props);
 
   const dispatch = useDispatch();
@@ -15,6 +16,15 @@ export const Todos: React.FC<TodosProps> = (props) => {
   const todos = useSelector(selectTodos);
   return (
     <div style={{ margin: '20px' }}>
+      <button
+        type="button"
+        onClick={() => {
+          dispatch(logOut());
+          props.history.push('/');
+        }}
+      >
+        Log Out
+      </button>
       <h3>Todos List</h3>
       <AddTodo />
       <br />

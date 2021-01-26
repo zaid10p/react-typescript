@@ -9,15 +9,15 @@ interface ProtectedProps {
 const ProtectedRoute = ({ Component, ...rest }: ProtectedProps) => (
   <Route
     {...rest}
-    render={(props) => {
-      const login = sessionStorage.getItem('login');
-      console.log(login);
-      return login === 'true' ? (
+    render={(props: RouteComponentProps) => {
+      const user = localStorage.getItem('user');
+      console.log(user);
+      return user ? (
         <Component {...props} />
       ) : (
         <Redirect
           to={{
-            pathname: '/',
+            pathname: '/login',
             state: { from: props.location },
           }}
         />
